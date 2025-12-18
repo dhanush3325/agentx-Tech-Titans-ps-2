@@ -146,7 +146,10 @@ Call them from frontend using TanStack Query or fetch
 
 
 # Expected outputs  
-website:
+website: http://10.106.22.69:5000
+
+MAIN HOST SERVER :
+Website : http://localhost:5000
 
 
 
