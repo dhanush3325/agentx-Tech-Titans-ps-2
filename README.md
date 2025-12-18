@@ -54,36 +54,37 @@ We designed *Puzzleverse*, a dynamic puzzle-based game world where AgentX learns
   - Interaction actions
 - *Algorithm Used*:
   - Reinforcement Learning (Q-Learning / Deep Q-Network – conceptual)
-  - 📋 Complete Setup Guide
+
+  # Complete Setup Guide(Setup steps )
 Prerequisites
 Node.js (v18 or higher)
 npm or yarn
 PostgreSQL database (for production; development uses in-memory store)
-Step 1: Clone & Install Dependencies
-# Clone the repository (or extract if you have a zip)
+# Step 1: Clone & Install Dependencies
+#Clone the repository (or extract if you have a zip)
 git clone <your-repo-url>
 cd your-project
-# Install all dependencies
+#Install all dependencies
 npm install
 
-Step 2: Environment Setup
+# Step 2: Environment Setup
 Create a .env file in the root directory:
 
-# Server
+#Server
 NODE_ENV=development
 PORT=5000
-# Database (if using PostgreSQL)
+#Database (if using PostgreSQL)
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
-# Session
+#Session
 SESSION_SECRET=your-secret-key-here
 
-Step 3: Database Setup (if using PostgreSQL)
-# Create your database first
+# Step 3: Database Setup (if using PostgreSQL)
+#Create your database first
 createdb your-database-name
-# Run migrations
+#Run migrations
 npm run db:push
 
-Step 4: Start Development
+# Step 4: Start Development
 Option A: Full Stack (Frontend + Backend together)
 
 npm run dev
@@ -96,10 +97,10 @@ npm run dev:client
 
 This runs just the Vite dev server on http://localhost:5000 with hot reload.
 
-Step 5: Build for Production
-# Build the app
+# Step 5: Build for Production
+#Build the app
 npm run build
-# Start production server
+#Start production server
 npm start
 
 Project Structure
@@ -142,6 +143,10 @@ function Router() {
 Adding API Routes
 Add routes in server/routes.ts
 Call them from frontend using TanStack Query or fetch
+
+
+# Expected outputs  
+website:
 
 
 
