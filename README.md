@@ -54,71 +54,115 @@ We designed *Puzzleverse*, a dynamic puzzle-based game world where AgentX learns
   - Interaction actions
 - *Algorithm Used*:
   - Reinforcement Learning (Q-Learning / Deep Q-Network – conceptual)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-🧩 PuzzleVerse
-
-PuzzleVerse is an interactive puzzle-based web application designed to improve logical thinking and problem-solving skills through engaging challenges.
-
-🚀 Live Preview
-
-«(Add your deployed link here if available)
-Example: http://10.125.86.153:5000/
-
-🖼 Project Preview
-
-<!-- Add screenshots of your project -->"Home Page" (screenshots/home.png)
-"Puzzle Page" (screenshots/puzzle.png)
-"Result Page" (screenshots/result.png)
-
-«📌 Create a folder named "screenshots" and place your output images inside it.»
-
-✨ Features
-
-- Interactive puzzle challenges
-- Clean and responsive UI
-- Real-time puzzle validation
-- Smooth user experience
-
-🛠 Tech Stack
-
-- Frontend: React + TypeScript
-- Backend: Node.js
-- Build Tool: Vite
-- Styling: CSS / Tailwind (if used)
-
-⚙ How to Run the Project
-
+  - 📋 Complete Setup Guide
+Prerequisites
+Node.js (v18 or higher)
+npm or yarn
+PostgreSQL database (for production; development uses in-memory store)
+Step 1: Clone & Install Dependencies
+# Clone the repository (or extract if you have a zip)
+git clone <your-repo-url>
+cd your-project
+# Install all dependencies
 npm install
+
+Step 2: Environment Setup
+Create a .env file in the root directory:
+
+# Server
+NODE_ENV=development
+PORT=5000
+# Database (if using PostgreSQL)
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+# Session
+SESSION_SECRET=your-secret-key-here
+
+Step 3: Database Setup (if using PostgreSQL)
+# Create your database first
+createdb your-database-name
+# Run migrations
+npm run db:push
+
+Step 4: Start Development
+Option A: Full Stack (Frontend + Backend together)
+
 npm run dev
 
-Open in browser:
+This runs the backend server on http://localhost:5000 and serves the frontend from it.
 
-http://localhost:5000
+Option B: Frontend Only (for UI iteration)
 
-👤 Author
+npm run dev:client
 
-Sai Teja
-Andhra Pradesh, Nellore
+This runs just the Vite dev server on http://localhost:5000 with hot reload.
+
+Step 5: Build for Production
+# Build the app
+npm run build
+# Start production server
+npm start
+
+Project Structure
+├── client/              # Frontend React app
+│   ├── src/
+│   │   ├── pages/      # Page components
+│   │   ├── components/ # UI components (Shadcn)
+│   │   ├── App.tsx     # Main router
+│   │   └── index.css   # Styling
+│   └── index.html      # HTML template
+├── server/             # Backend Express server
+│   ├── index.ts        # Server entry
+│   ├── routes.ts       # API routes
+│   └── storage.ts      # Data layer
+├── shared/             # Shared code
+│   └── schema.ts       # Type definitions
+└── package.json        # Dependencies
+
+Key Commands Reference
+Command	Purpose
+npm run dev	Run full stack (backend + frontend)
+npm run dev:client	Run frontend only (Vite dev server)
+npm run build	Build for production
+npm start	Start production server
+npm run check	TypeScript type checking
+npm run db:push	Run database migrations
+Adding Pages
+Create a new component in client/src/pages/
+Register it in client/src/App.tsx:
+import MyPage from "@/pages/my-page";
+function Router() {
+  return (
+    <Switch>
+      <Route path="/my-route" component={MyPage} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+Adding API Routes
+Add routes in server/routes.ts
+Call them from frontend using TanStack Query or fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
